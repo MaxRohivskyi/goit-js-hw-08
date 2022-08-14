@@ -42,7 +42,7 @@ function onFormSubmit(e) {
     //     console.log(formData);
     // };
     if (savedFormData) {
-        formData = JSON.parse(savedFormData);
+        const formData = JSON.parse(savedFormData);
 
         localStorage.removeItem(FEEDBACK_DATA);
         e.currentTarget.reset();
