@@ -31,9 +31,17 @@ function onFormSubmit(e) {
 
     const savedFormData = localStorage.getItem(FEEDBACK_DATA);
 
-    if (refs.form.email.value === '' || refs.form.message.value === '') {
-        alert('Please fill in all the fields!');
-    } else if (savedFormData) {
+    // if (refs.form.email.value === '' || refs.form.message.value === '') {
+    //     alert('Please fill in all the fields!');
+    // } else if (savedFormData) {
+    //     formData = JSON.parse(savedFormData);
+
+    //     localStorage.removeItem(FEEDBACK_DATA);
+    //     e.currentTarget.reset();
+        
+    //     console.log(formData);
+    // };
+    if (savedFormData) {
         formData = JSON.parse(savedFormData);
 
         localStorage.removeItem(FEEDBACK_DATA);
@@ -41,6 +49,7 @@ function onFormSubmit(e) {
         
         console.log(formData);
     };
+
 };
 
 function populateForm() {
