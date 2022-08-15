@@ -33,9 +33,8 @@ function onFormSubmit(e) {
 
     if (refs.form.email.value === '' || refs.form.message.value === '') {
         alert('Please fill in all the fields!');
-    };
-    if (savedFormData) {
-        formData = JSON.parse(savedFormData);
+    } else if (savedFormData) {
+        JSON.parse(savedFormData);
 
         localStorage.removeItem(FEEDBACK_DATA);
         e.currentTarget.reset();
