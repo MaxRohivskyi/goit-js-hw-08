@@ -34,13 +34,11 @@ function onFormSubmit(e) {
     if (refs.form.email.value === '' || refs.form.message.value === '') {
         alert('Please fill in all the fields!');
     } else if (savedFormData) {
-        JSON.parse(savedFormData);
-
-        localStorage.removeItem(FEEDBACK_DATA);
-        e.currentTarget.reset();
-        
-        console.log(formData);
+        console.log(JSON.parse(savedFormData));
     };
+
+    localStorage.removeItem(FEEDBACK_DATA);
+    e.currentTarget.reset();
     // if (savedFormData) {
     //     const formData = JSON.parse(savedFormData);
 
