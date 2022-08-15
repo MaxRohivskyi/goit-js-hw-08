@@ -15,15 +15,20 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 populateForm()
 
 function onFormInput(e) {
-    let formData = {};
-    const savedFormData = localStorage.getItem(FEEDBACK_DATA);
+    // let formData = {};
+    // const savedFormData = localStorage.getItem(FEEDBACK_DATA);
 
-    if (savedFormData) {
-        formData = JSON.parse(savedFormData);
-    };
+    // if (savedFormData) {
+    //     formData = JSON.parse(savedFormData);
+    // };
 
-    formData[e.target.name] = e.target.value;
-    localStorage.setItem(FEEDBACK_DATA, JSON.stringify(formData));
+    // formData[e.target.name] = e.target.value;
+    // localStorage.setItem(FEEDBACK_DATA, JSON.stringify(formData));
+
+    const formData = new FormData(refs.form);
+    const values = Object.fromEntries(formData.entries());
+
+    localStorage.setItem(FEEDBACK_DATA, JSON.stringify(values));
 };
 
 function onFormSubmit(e) {
@@ -55,5 +60,5 @@ function populateForm() {
     if (savedFormData) {
         refs.input.value = savedFormData.email;
         refs.textarea.value = savedFormData.message;
-  }
+    }
 };
