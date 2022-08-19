@@ -15,16 +15,6 @@ refs.form.addEventListener('input', throttle(onFormInput, 500));
 populateForm()
 
 function onFormInput(e) {
-    // let formData = {};
-    // const savedFormData = localStorage.getItem(FEEDBACK_DATA);
-
-    // if (savedFormData) {
-    //     formData = JSON.parse(savedFormData);
-    // };
-
-    // formData[e.target.name] = e.target.value;
-    // localStorage.setItem(FEEDBACK_DATA, JSON.stringify(formData));
-
     const formData = new FormData(refs.form);
     const values = Object.fromEntries(formData.entries());
 
@@ -44,14 +34,6 @@ function onFormSubmit(e) {
 
     localStorage.removeItem(FEEDBACK_DATA);
     e.currentTarget.reset();
-    // if (savedFormData) {
-    //     const formData = JSON.parse(savedFormData);
-
-    //     localStorage.removeItem(FEEDBACK_DATA);
-    //     e.currentTarget.reset();
-        
-    //     console.log(formData);
-    // };
 };
 
 function populateForm() {
